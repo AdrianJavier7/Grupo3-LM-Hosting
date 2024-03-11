@@ -8,13 +8,8 @@
             .bg-color-form {
                 background-color: #0DBBB9;
             }
-            button{
-                background-color: white;
-                color: gray;
-                border: none;
-                font-weight: bold;
-            }
         </style>
+        <script src="Formulario.js" defer></script>
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark">
@@ -29,9 +24,15 @@
                         <h1 class="text-center m-5 border border-dark p-3 rounded-pill bg-light">Registro de Noticias</h1>
                         <form>
                             <div class="border border-dark bg-info rounded-3 mb-4 p-3 ps-4 shadow">
-                                <label class="form-label text-white fst-italic fw-bold fs-5" for="titulo">Título: </label>
+                                <label class="form-label text-white fst-italic fw-bold fs-5" for="titulo">Títular: </label>
                                 <div>
                                     <input class="form-control" type="text" id="titulo" placeholder="Introduce el título de la noticia" required>
+                                </div>
+                            </div>
+                            <div class="border border-dark bg-info rounded-3 mb-4 p-3 ps-4 shadow">
+                                <label class="form-label text-white fst-italic fw-bold fs-5" for="link">Cuerpo de la noticia: </label>
+                                <div>
+                                    <textarea class="form-control" id="link" placeholder="Introduce el cuerpo de la noticia" rows="5" required></textarea>
                                 </div>
                             </div>
                             <div class="border border-dark bg-info rounded-3 mb-4 p-3 ps-4 shadow">
@@ -47,18 +48,12 @@
                                 </div>
                             </div>
                             <div class="border border-dark bg-info rounded-3 mb-4 p-3 ps-4 shadow">
-                                <label class="form-label text-white fst-italic fw-bold fs-5" for="link">Enlace: </label>
-                                <div>
-                                    <input class="form-control" type="text" id="link" placeholder="Introduce el enlace de la noticia" pattern="https?://.+" required>
-                                </div>
-                            </div>
-                            <div class="border border-dark bg-info rounded-3 mb-4 p-3 ps-4 shadow">
                                 <label class="form-label text-white fst-italic fw-bold fs-5" for="imagen">URL de la imagen: </label>
                                 <div>
                                     <input class="form-control" type="text" id="imagen" placeholder="Introduce una imagen" pattern="https?://.+" required>
                                 </div>
                             </div>
-                            <button class="rounded-pill fs-4 my-4 w-100" type="submit">Enviar →</button>
+                            <button class="rounded-pill btn btn-secondary fs-4 my-4 w-100" type="submit">Enviar →</button>
                         </form>
                     </div>
                 </div>
