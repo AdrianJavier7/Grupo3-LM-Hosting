@@ -2,6 +2,11 @@ const http = require('http');
 const fs = require('fs');
 const url = require('url');
 const querystring = require('querystring');
+const RSS = require('rss');
+
+const path = require('path');
+
+const json = path.join('Paso4/Noticias.json');
 
 // Crear servidor HTTP
 const server = http.createServer((req, res) => {
@@ -10,7 +15,7 @@ const server = http.createServer((req, res) => {
     // Manejar solicitud GET al formulario HTML
     if (req.method === 'GET' && pathname === '/') {
         res.writeHead(200, { 'Content-Type': 'text/html' });
-        fs.createReadStream('ruta de FormularioAdmin.html en tu proyecto').pipe(res);
+        fs.createReadStream('Paso4/FormularioAdmin.html').pipe(res);
     }
     // Manejar solicitud POST del formulario
     else if (req.method === 'POST' && pathname === '/submit') {
@@ -25,10 +30,10 @@ const server = http.createServer((req, res) => {
             const formData = querystring.parse(body);
             console.log(formData);
             // Leer el contenido actual del archivo JSON
-            fs.readFile('ruta del JSON en tu proyecto', 'utf8', (err, data) => {
+            fs.readFile('Paso4/Noticias.json', 'utf8', (err, data) => {
                 if (err) {
                     console.error('Error al leer el archivo JSON:', err);
-                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.writeHead(500, {'Content-Type': 'text/plain'});
                     res.end('Error interno del servidor');
                     return;
                 }
@@ -40,7 +45,7 @@ const server = http.createServer((req, res) => {
                     jsonData = JSON.parse(data);
                 } catch (parseError) {
                     console.error('Error al analizar el contenido del archivo JSON:', parseError);
-                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.writeHead(500, {'Content-Type': 'text/plain'});
                     res.end('Error interno del servidor');
                     return;
                 }
@@ -49,25 +54,70 @@ const server = http.createServer((req, res) => {
                 jsonData.data.push(formData);
 
                 // Escribir los datos combinados en el archivo .json
-                fs.writeFile('ruta del JSON en tu proyecto', JSON.stringify(jsonData, null, 2), err => {
+                fs.writeFile('Paso4/Noticias.json', JSON.stringify(jsonData, null, 2), err => {
                     if (err) {
                         console.error('Error al escribir en el archivo JSON:', err);
-                        res.writeHead(500, { 'Content-Type': 'text/plain' });
+                        res.writeHead(500, {'Content-Type': 'text/plain'});
                         res.end('Error interno del servidor');
                         return;
                     }
                     console.log('Datos guardados correctamente.');
+                    // Redirigir al cliente de vuelta al formulario
+
+                    res.writeHead(302, { 'Location': '/' });
+                    res.end();
                 });
             });
         });
+    }
+    // Manejar solicitud GET para generar RSS
+    else if (req.method === 'GET' && pathname === '/rss') {
 
+        let feed = new RSS({
+            title: 'Noticias',
+            description: 'Noticias de la semana',
+            feed_url: 'http://localhost:3000/rss',
+            site_url: 'http://localhost:3000',
+            author: '',
+            section: ''
+        });
 
-    } else {
+        fs.readFile(json, 'utf8', (err, datos) => {
+            if (err) {
+                console.error('Error al leer el archivo JSON:', err);
+                res.writeHead(500, {'Content-Type': 'text/plain'});
+                res.end('Error interno del servidor');
+                return;
+            }
+
+            let datos2 = JSON.parse(datos);
+
+            datos2.data.forEach(cadaElemento => {
+                feed.item({
+                    title: cadaElemento.titulo,
+                    description: cadaElemento.cuerpo,
+                    url: cadaElemento.url,
+                    date: cadaElemento.fecha,
+                    custom_elements: [
+
+                        { 'author': cadaElemento.autor },
+                        { 'section': cadaElemento.genero},
+                        { 'image': cadaElemento.imagen}]
+                });
+            });
+
+            res.setHeader('Content-Type', 'text/xml');
+            res.write(feed.xml());
+            res.end();
+        });
+    }
+    else {
         // Manejar rutas no encontradas
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('404 - Ruta no encontrada');
     }
 });
+
 
 // Escuchar en el puerto 3000
 const PORT = 3000;
