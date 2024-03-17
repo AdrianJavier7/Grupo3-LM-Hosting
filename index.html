@@ -15,6 +15,7 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand ps-5">Introducción de Noticias</a>
+        <a class="navbar-brand" href="principal.html">Mostrar Noticias</a>
     </div>
 </nav>
 <main>
@@ -36,6 +37,12 @@
                         </div>
                     </div>
                     <div class="border border-dark bg-info rounded-3 mb-4 p-3 ps-4 shadow">
+                        <label class="form-label text-white fst-italic fw-bold fs-5" for="genero">Género: </label>
+                        <div>
+                            <input class="form-control" type="text" id="genero" name="genero" placeholder="Introduce el género" required>
+                        </div>
+                    </div>
+                    <div class="border border-dark bg-info rounded-3 mb-4 p-3 ps-4 shadow">
                         <label class="form-label text-white fst-italic fw-bold fs-5" for="autor">Autor: </label>
                         <div>
                             <input class="form-control" type="text" id="autor" name="autor" placeholder="Introduce el autor de la noticia" required>
@@ -45,6 +52,12 @@
                         <label class="form-label text-white fst-italic fw-bold fs-5" for="fecha">Fecha de publicación: </label>
                         <div>
                             <input class="form-control" type="date" id="fecha" name="fecha" placeholder="Introduce el día de publicación" required>
+                        </div>
+                    </div>
+                    <div class="border border-dark bg-info rounded-3 mb-4 p-3 ps-4 shadow">
+                        <label class="form-label text-white fst-italic fw-bold fs-5" for="url">Enlace: </label>
+                        <div>
+                            <input class="form-control" type="text" id="url" name="url" placeholder="Introduce el enlace" pattern="+.html" required>
                         </div>
                     </div>
                     <div class="border border-dark bg-info rounded-3 mb-4 p-3 ps-4 shadow">

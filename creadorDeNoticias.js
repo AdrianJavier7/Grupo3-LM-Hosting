@@ -78,7 +78,8 @@ const server = http.createServer((req, res) => {
             description: 'Noticias de la semana',
             feed_url: 'http://localhost:3000/rss',
             site_url: 'http://localhost:3000',
-            managingEditor: ''
+            author: '',
+            section: ''
         });
 
         fs.readFile(json, 'utf8', (err, datos) => {
@@ -95,17 +96,47 @@ const server = http.createServer((req, res) => {
                 feed.item({
                     title: cadaElemento.titulo,
                     description: cadaElemento.cuerpo,
-                    url: 'http://localhost:3000/rss',
-                    author: cadaElemento.autor,
-                    date: cadaElemento.fecha
+                    url: cadaElemento.url,
+                    date: cadaElemento.fecha,
+                    custom_elements: [
+
+                        { 'author': cadaElemento.autor },
+                        { 'section': cadaElemento.genero},
+                        { 'image': cadaElemento.imagen}]
                 });
             });
+
 
             res.setHeader('Content-Type', 'text/xml');
             res.write(feed.xml());
             res.end();
         });
     }
+    else if (req.method === 'GET' && pathname === '/principal.html') {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        fs.createReadStream('principal.html').pipe(res);
+
+        fs.readFile(json, 'utf8', (err, datos) => {
+            if (err) {
+                console.error('Error al leer el archivo JSON:', err);
+                res.writeHead(500, {'Content-Type': 'text/plain'});
+                res.end('Error interno del servidor');
+                return;
+            }
+
+            let datos2 = JSON.parse(datos);
+            let ultimasNoticias = datos2.data.slice(-5);
+
+            ultimasNoticias.forEach(cadaElemento => {
+                res.write(`<h1>${cadaElemento.titulo}</h1>`);
+                res.write(`<p>${cadaElemento.autor}</p>`);
+                res.write(`<p>${cadaElemento.fecha}</p>`);
+            });
+
+            res.end();
+        });
+    }
+
     else {
         // Manejar rutas no encontradas
         res.writeHead(404, { 'Content-Type': 'text/plain' });
