@@ -1,0 +1,4 @@
+Descargar el XML del feed: 
+  curl -o (nombre que quieras).xml http://localhost:3000/rss
+Transformar a PDF:
+  fop -xml (el nombre que le hayas puesto al xml de arriba).xml -xsl FormateoPDF.xsl -pdf (nombre que quieras).pdf
