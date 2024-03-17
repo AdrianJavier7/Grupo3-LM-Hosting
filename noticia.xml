@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <channel>
+        <title>POOL DE NOTICIAS SINDICADAS</title>
+        <link>Enlace</link>
+        <item>
+            <title>Deporte</title>
+            <author>JON RIVAS</author>
+            <pubDate>19/02/2024</pubDate>
+            <description>El Athletic descuelga al Girona</description>
+            <link>https://elpais.com/deportes/futbol/2024-02-19/el-athletic-descuelga-al-girona-con-su-presion-adelantada.html</link>
+            <image>https://imagenes.elpais.com/resizer/lF3VaY4AGv0Zr2Wc5wDnZJQ-9IA=/1200x0/filters:focal(1985x280:1995x290)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/F6UAPXY6IFEJFJPEJ2PWBOF7IM.jpg</image>
+        </item>
+        <item>
+            <title>Internacional</title>
+            <author>Ibai</author>
+            <pubDate>18/12/2024</pubDate>
+            <description>Ibai se cae</description>
+            <link>https://elpais.com/deportes/futbol/2024-02-19/el-athletic-descuelga-al-girona-con-su-presion-adelantada.html</link>
+            <image>https://estaticosgn-cdn.deia.eus/clip/8aa7f999-da97-4782-a609-db7ca8c832e7_16-9-discover-aspect-ratio_default_0.jpg</image>
+        </item>
+    </channel>
+</rss>
