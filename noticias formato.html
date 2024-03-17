@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>noticias</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .card-img-top {
+      max-height: 200px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row" id="jsonCardsRow">
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+   
+    var jsonData = {
+      "data": [
+        {
+          "titulo": "Tractores",
+          "cuerpo": "hola",
+          "genero": "Ciencia",
+          "autor": "Estupido",
+          "fecha": "2024-03-15",
+          "url": "noticia1.html",
+          "imagen": "https://www.iberdrola.com/documents/20125/40948/mujer-deporte-alianza-exito-746x419.png/77d9c70c-fdd8-e9ad-0538-ad88a314ac0f?t=1701793959991"
+        },
+        {
+          "titulo": "coches",
+          "cuerpo": "coches que se conducen",
+          "genero": "carretera",
+          "autor": "Thegrefg",
+          "fecha": "2024-07-26",
+          "url": "noticia2.html",
+          "imagen": "https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2022/08/7-mejores-coches-espanoles-jamas-fabricados-historia-2774201.jpg?tf=1080x"
+        },
+        {
+          "titulo": "Ibai",
+          "cuerpo": "Ibai  se cae y se hace daño",
+          "genero": "Ibai",
+          "autor": "Ibai",
+          "fecha": "2024-07-26",
+          "url": "noticia2.html",
+          "imagen": "https://www.publico.es/uwu/wp-content/uploads/2023/06/ibai-2903208-_1_-990x500.jpeg"
+        }
+      ]
+    };
+
+    var cardsHTML = "";
+    jsonData.data.forEach(function(item) {
+      var cardHTML = `
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="${item.imagen}" alt="Imagen de la noticia">
+            <div class="card-body">
+              <h5 class="card-title">${item.titulo}<span class="float-right">${item.fecha}</span></h5>
+              <p class="card-text">Autor: ${item.autor}</p>
+              <p class="card-text">Género: ${item.genero}</p>
+              <p class="card-text">Cuerpo: ${item.cuerpo}</p>
+            </div>
+          </div>
+        </div>
+      `;
+      cardsHTML += cardHTML;
+    });
+
+    document.getElementById("jsonCardsRow").innerHTML = cardsHTML;
+  </script>
+</body>
+</html>
