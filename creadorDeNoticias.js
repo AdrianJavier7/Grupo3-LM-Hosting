@@ -6,7 +6,7 @@ const RSS = require('rss');
 
 const path = require('path');
 
-const json = path.join(__dirname, 'formulario.json');
+const json = path.join(__dirname, 'Noticias.json');
 
 // Crear servidor HTTP
 const server = http.createServer((req, res) => {
@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
     // Manejar solicitud GET al formulario HTML
     if (req.method === 'GET' && pathname === '/') {
         res.writeHead(200, { 'Content-Type': 'text/html' });
-        fs.createReadStream('index.html').pipe(res);
+        fs.createReadStream('Paso4/FormularioAdmin.html').pipe(res);
     }
     // Manejar solicitud POST del formulario
     else if (req.method === 'POST' && pathname === '/submit') {
@@ -30,7 +30,7 @@ const server = http.createServer((req, res) => {
             const formData = querystring.parse(body);
             console.log(formData);
             // Leer el contenido actual del archivo JSON
-            fs.readFile('formulario.json', 'utf8', (err, data) => {
+            fs.readFile('Paso4/Noticias.json', 'utf8', (err, data) => {
                 if (err) {
                     console.error('Error al leer el archivo JSON:', err);
                     res.writeHead(500, {'Content-Type': 'text/plain'});
@@ -54,7 +54,7 @@ const server = http.createServer((req, res) => {
                 jsonData.data.push(formData);
 
                 // Escribir los datos combinados en el archivo .json
-                fs.writeFile('formulario.json', JSON.stringify(jsonData, null, 2), err => {
+                fs.writeFile('Paso4/Noticias.json', JSON.stringify(jsonData, null, 2), err => {
                     if (err) {
                         console.error('Error al escribir en el archivo JSON:', err);
                         res.writeHead(500, {'Content-Type': 'text/plain'});
@@ -79,7 +79,9 @@ const server = http.createServer((req, res) => {
             feed_url: 'http://localhost:3000/rss',
             site_url: 'http://localhost:3000',
             author: '',
-            section: ''
+            section: '',
+            image: '',
+            data: ''
         });
 
         fs.readFile(json, 'utf8', (err, datos) => {
@@ -99,10 +101,10 @@ const server = http.createServer((req, res) => {
                     url: cadaElemento.url,
                     date: cadaElemento.fecha,
                     custom_elements: [
-
                         { 'author': cadaElemento.autor },
                         { 'section': cadaElemento.genero},
-                        { 'image': cadaElemento.imagen}]
+                        { 'image': cadaElemento.imagen},
+                        { 'date': cadaElemento.fecha}]
                 });
             });
 
@@ -112,28 +114,45 @@ const server = http.createServer((req, res) => {
             res.end();
         });
     }
-    else if (req.method === 'GET' && pathname === '/principal.html') {
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        fs.createReadStream('principal.html').pipe(res);
-
-        fs.readFile(json, 'utf8', (err, datos) => {
+    else if (req.method === 'GET' && pathname === '/paginaSindicacion.html') {
+        fs.readFile('Paso4/paginaSindicacion.html', 'utf8', (err, pagina) => {
             if (err) {
-                console.error('Error al leer el archivo JSON:', err);
+                console.error('Error al leer el archivo HTML:', err);
                 res.writeHead(500, {'Content-Type': 'text/plain'});
                 res.end('Error interno del servidor');
                 return;
             }
 
-            let datos2 = JSON.parse(datos);
-            let ultimasNoticias = datos2.data.slice(-5);
+            fs.readFile(json, 'utf8', (err, datos) => {
+                if (err) {
+                    console.error('Error al leer el archivo JSON:', err);
+                    res.writeHead(500, {'Content-Type': 'text/plain'});
+                    res.end('Error interno del servidor');
+                    return;
+                }
 
-            ultimasNoticias.forEach(cadaElemento => {
-                res.write(`<h1>${cadaElemento.titulo}</h1>`);
-                res.write(`<p>${cadaElemento.autor}</p>`);
-                res.write(`<p>${cadaElemento.fecha}</p>`);
+                let datos2 = JSON.parse(datos);
+                let ultimasNoticias = datos2.data.slice(-5);
+
+                let htmlResponse = pagina;
+
+                let noticiasHTML = '';
+
+                ultimasNoticias.forEach(cadaElemento => {
+                    noticiasHTML += `<div class="m-auto d-block bg-white border border-dark card rounded-3 text-center shadow my-5 col-sm-11 col-md-8 col-lg-5">
+                                        <image class="card-img-top" src=${cadaElemento.imagen}></image>
+                                        <h3><a class="text-decoration-none mt-2" href=${cadaElemento.url}>${cadaElemento.titulo}</a></h3>
+                                        <p>Escrito por: ${cadaElemento.autor}</p>
+                                        <p>${cadaElemento.fecha}</p>
+                                     </div>`;
+                });
+
+                htmlResponse = htmlResponse.replace('{{noticias}}', noticiasHTML);
+
+
+                res.writeHead(200, {'Content-Type': 'text/html'});
+                res.end(htmlResponse);
             });
-
-            res.end();
         });
     }
 
