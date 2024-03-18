@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sindicación de contenidos</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    </head>
+    <body style="background-color: #93c7fa">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler btn-danger bg-danger" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menu">
+                    <div class="navbar-nav me-auto">
+                        <a class="nav-link active" href="http://localhost:3000/">Registro de Noticias</a>
+                        <a class="nav-link active" href="http://localhost:3000/rss">Feed RSS</a>
+                    </div>
+                </div>
+                <a class="navbar-brand ms-auto" href="http://localhost:3000/paginaSindicacion.html">Últimas Noticias</a>
+            </div>
+        </nav>
+        <div class="rounded-pill bg-white text-center p-3 w-50 border-dark border m-auto mt-5">
+            <h1>Últimas Noticias</h1>
+        </div>
+        <div class="p-3 container">
+            {{noticias}}
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    </body>
+</html>
