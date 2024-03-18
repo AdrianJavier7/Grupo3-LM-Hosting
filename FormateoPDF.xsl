@@ -58,14 +58,28 @@
             <fo:block margin="4mm">
                 <fo:external-graphic src="{image}" content-width="50pt" content-height="50pt"/>
             </fo:block>
-            <fo:block margin="4mm" font-size="16pt" color="#333" text-align="left">
-                <fo:block font-family="Trebuchet" font-size="12pt" font-weight="bold" text-align="left">
-                    <xsl:value-of select="section"/>
-                </fo:block>
-                <fo:block font-family="Trebuchet" font-size="10pt" font-weight="bold" text-align="right">
-                    <xsl:value-of select="date"/>
-                </fo:block>
-            </fo:block>
+
+            <fo:table>
+                <fo:table-body>
+                    <fo:table-row width="50mm">
+                        <fo:table-cell font-family="Trebuchet" font-size="12pt" font-weight="bold">
+                            <fo:block>
+                                <xsl:value-of select="section"/>
+                            </fo:block>
+                        </fo:table-cell>
+
+                        <fo:table-cell font-family="Trebuchet" font-size="10pt" font-weight="bold" text-align="right" margin-left="20px">
+                            <fo:block>
+                                <xsl:value-of select="date"/>
+                            </fo:block>
+                        </fo:table-cell>
+                    </fo:table-row>
+                </fo:table-body>
+            </fo:table>
+
+
+
+
             <fo:block margin="4mm" font-family="Garamond" font-size="12pt">
                 <fo:inline font-family="Times New Roman" font-size="12pt">
                     <xsl:value-of select="title"/>
