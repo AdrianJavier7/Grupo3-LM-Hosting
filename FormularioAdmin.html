@@ -12,11 +12,18 @@
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand text-end" href="http://localhost:3000/">Introducción de Noticias</a>
-                <a class="navbar-brand text-end ms-auto" href="http://localhost:3000/rss">Feed RSS</a>
-                <a class="navbar-brand text-start" href="http://localhost:3000/paginaSindicacion.html">Inicio</a>
+                <button class="navbar-toggler btn-danger bg-danger" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menu">
+                    <div class="navbar-nav me-auto">
+                        <a class="nav-link active" href="http://localhost:3000/">Registro de Noticias</a>
+                        <a class="nav-link active" href="http://localhost:3000/rss">Feed RSS</a>
+                    </div>
+                </div>
+                <a class="navbar-brand ms-auto" href="http://localhost:3000/paginaSindicacion.html">Últimas Noticias</a>
             </div>
         </nav>
         <main>
@@ -61,11 +68,12 @@
                                     <input class="form-control" type="text" id="imagen" name="imagen" placeholder="Introduce una imagen" pattern="https?://.+" required>
                                 </div>
                             </div>
-                            <button class="rounded-pill btn btn-info fs-4 my-4 w-100 border border-dark text-white" type="submit">Enviar →</button>
+                            <button class="rounded-pill btn btn-info fs-4 my-4 w-100 border border-dark text-white fw-bold" type="submit">Enviar →</button>
                         </form>
                     </div>
                 </div>
             </div>
         </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 </html>
