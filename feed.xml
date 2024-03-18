@@ -1,0 +1,166 @@
+<rss version="2.0">
+<channel>
+<title>Noticias</title>
+<description>Noticias de la semana</description>
+<link>http://localhost:3000</link>
+<generator>RSS for Node</generator>
+<lastBuildDate>Mon, 18 Mar 2024 07:49:51 GMT</lastBuildDate>
+<atom:link href="http://localhost:3000/rss" rel="self" type="application/rss+xml"/>
+<item>
+<title>Luisa espera</title>
+<description>oajfsaf</description>
+<link>noticia1.html</link>
+<guid isPermaLink="true">noticia1.html</guid>
+<pubDate>Thu, 07 Mar 2024 00:00:00 GMT</pubDate>
+<author>Estupido</author>
+<section>Ciencia</section>
+<image>
+https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1687946566-61G4ut7tLRL.jpg?crop=1xw:1.00xh;center,top&resize=980:*
+</image>
+<date>2024-03-07</date>
+</item>
+<item>
+<title>Tractores</title>
+<description>jgugug7</description>
+<link>noticia1.html</link>
+<guid isPermaLink="true">noticia1.html</guid>
+<pubDate>Thu, 29 Feb 2024 00:00:00 GMT</pubDate>
+<author>Ibai</author>
+<section>Ciencia</section>
+<image>
+https://i.blogs.es/48e6f3/tractor-que-john-deere-que-funciona-con-amoniaco-7/1366_2000.jpeg
+</image>
+<date>2024-02-29</date>
+</item>
+<item>
+<title>edst</title>
+<description>ñ</description>
+<link>noticia1.html</link>
+<guid isPermaLink="true">noticia1.html</guid>
+<pubDate>Wed, 28 Feb 2024 00:00:00 GMT</pubDate>
+<author>seg</author>
+<section>Ciencia</section>
+<image>
+https://i.blogs.es/48e6f3/tractor-que-john-deere-que-funciona-con-amoniaco-7/1366_2000.jpeg
+</image>
+<date>2024-02-28</date>
+</item>
+<item>
+<title>hola</title>
+<description>asas</description>
+<link>noticia1.html</link>
+<guid isPermaLink="true">noticia1.html</guid>
+<pubDate>Thu, 04 Apr 2024 00:00:00 GMT</pubDate>
+<author>ef</author>
+<section>Ciencia</section>
+<image>
+https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1687946566-61G4ut7tLRL.jpg?crop=1xw:1.00xh;center,top&resize=980:*
+</image>
+<date>2024-04-04</date>
+</item>
+<item>
+<title>Luisa espera</title>
+<description>l</description>
+<link>noticia1.html</link>
+<guid isPermaLink="true">noticia1.html</guid>
+<pubDate>Wed, 27 Mar 2024 00:00:00 GMT</pubDate>
+<author>Ibai</author>
+<section>Ciencia</section>
+<image>
+https://i.blogs.es/48e6f3/tractor-que-john-deere-que-funciona-con-amoniaco-7/1366_2000.jpeg
+</image>
+<date>2024-03-27</date>
+</item>
+<item>
+<title>Luisa espera</title>
+<description>l</description>
+<link>noticia1.html</link>
+<guid isPermaLink="true">noticia1.html</guid>
+<pubDate>Wed, 27 Mar 2024 00:00:00 GMT</pubDate>
+<author>Ibai</author>
+<section>Ciencia</section>
+<image>
+https://i.blogs.es/48e6f3/tractor-que-john-deere-que-funciona-con-amoniaco-7/1366_2000.jpeg
+</image>
+<date>2024-03-27</date>
+</item>
+<item>
+<title>Luisa espera</title>
+<description>l</description>
+<link>noticia1.html</link>
+<guid isPermaLink="true">noticia1.html</guid>
+<pubDate>Wed, 27 Mar 2024 00:00:00 GMT</pubDate>
+<author>Ibai</author>
+<section>Ciencia</section>
+<image>
+https://i.blogs.es/48e6f3/tractor-que-john-deere-que-funciona-con-amoniaco-7/1366_2000.jpeg
+</image>
+<date>2024-03-27</date>
+</item>
+<item>
+<title>Estamos vivos</title>
+<description>No hay más pan</description>
+<link>http://localhost:3000/noticia1.html</link>
+<guid isPermaLink="true">http://localhost:3000/noticia1.html</guid>
+<pubDate>Thu, 14 Mar 2024 00:00:00 GMT</pubDate>
+<author>ElRubius</author>
+<section>Ciencia</section>
+<image>
+https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1687946566-61G4ut7tLRL.jpg?crop=1xw:1.00xh;center,top&resize=980:*
+</image>
+<date>2024-03-14</date>
+</item>
+<item>
+<title>Hola buenas</title>
+<description>Me gustas</description>
+<link>noticia1.html</link>
+<guid isPermaLink="true">noticia1.html</guid>
+<pubDate>Fri, 01 Mar 2024 00:00:00 GMT</pubDate>
+<author>Estupido</author>
+<section>Ciencia</section>
+<image>
+https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1687946566-61G4ut7tLRL.jpg?crop=1xw:1.00xh;center,top&resize=980:*
+</image>
+<date>2024-03-01</date>
+</item>
+<item>
+<title>hola</title>
+<description>wfefefge</description>
+<link>noticia1.html</link>
+<guid isPermaLink="true">noticia1.html</guid>
+<pubDate>Thu, 29 Feb 2024 00:00:00 GMT</pubDate>
+<author>Estupido</author>
+<section>Ciencia</section>
+<image>
+https://i.blogs.es/48e6f3/tractor-que-john-deere-que-funciona-con-amoniaco-7/1366_2000.jpeg
+</image>
+<date>2024-02-29</date>
+</item>
+<item>
+<title>Luisa espera</title>
+<description>A</description>
+<link>noticia1.html</link>
+<guid isPermaLink="true">noticia1.html</guid>
+<pubDate>Wed, 28 Feb 2024 00:00:00 GMT</pubDate>
+<author>seg</author>
+<section>Ciencia</section>
+<image>
+https://i.blogs.es/48e6f3/tractor-que-john-deere-que-funciona-con-amoniaco-7/1366_2000.jpeg
+</image>
+<date>2024-02-28</date>
+</item>
+<item>
+<title>No hay mas</title>
+<description>Sisi</description>
+<link>noticia1.html</link>
+<guid isPermaLink="true">noticia1.html</guid>
+<pubDate>Wed, 28 Feb 2024 00:00:00 GMT</pubDate>
+<author>Estupido</author>
+<section>Ciencia</section>
+<image>
+https://i.blogs.es/48e6f3/tractor-que-john-deere-que-funciona-con-amoniaco-7/1366_2000.jpeg
+</image>
+<date>2024-02-28</date>
+</item>
+</channel>
+</rss>
