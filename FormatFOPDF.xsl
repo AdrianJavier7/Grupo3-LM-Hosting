@@ -38,10 +38,10 @@
                             <xsl:text>Daniel Martín,</xsl:text>
                         </fo:block>
                         <fo:block text-align="center" margin-left="10pt">
-                            <xsl:text>Adrian Perez,</xsl:text>
+                            <xsl:text>Adrián Pérez,</xsl:text>
                         </fo:block>
                         <fo:block text-align="center" margin-left="10pt">
-                            <xsl:text>Jose Carlos,</xsl:text>
+                            <xsl:text>José Carlos,</xsl:text>
                         </fo:block>
                         <fo:block text-align="center" margin-left="10pt">
                             <xsl:text>Alejandro Almansa</xsl:text>
