@@ -100,17 +100,32 @@ const server = http.createServer((req, res) => {
                     title: cadaElemento.titulo,
                     description: cadaElemento.cuerpo,
                     date: cadaElemento.fecha,
-                    url: "noticia.html",
+                    url: "http://localhost:3000/noticia.html",
                     custom_elements: [
                         { 'author': cadaElemento.autor },
                         { 'section': cadaElemento.genero},
                         { 'image': cadaElemento.imagen},
                         { 'date': cadaElemento.fecha}]
                 });
-
-
             });
 
+            let ultimasNoticias = datos2.data.slice(-5);
+
+            ultimasNoticias.forEach((cadaElemento, index) => {
+                let enlace = "http://localhost:3000/noticia" + index + ".html"
+                    feed.item({
+                    title: cadaElemento.titulo,
+                    description: cadaElemento.cuerpo,
+                    date: cadaElemento.fecha,
+                    url: enlace,
+                    custom_elements: [
+                        { 'author': cadaElemento.autor },
+                        { 'section': cadaElemento.genero },
+                        { 'image': cadaElemento.imagen },
+                        { 'date': cadaElemento.fecha }
+                    ]
+                });
+            });
 
             res.setHeader('Content-Type', 'text/xml');
             res.write(feed.xml());
@@ -165,7 +180,6 @@ const server = http.createServer((req, res) => {
                 });
 
                 htmlResponse = htmlResponse.replace('{{noticias}}', noticiasHTML);
-
 
                 res.writeHead(200, {'Content-Type': 'text/html'});
                 res.end(htmlResponse);
