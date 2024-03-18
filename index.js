@@ -95,7 +95,7 @@ const server = http.createServer((req, res) => {
 
             let datos2 = JSON.parse(datos);
 
-            datos2.data.forEach(cadaElemento => {
+            datos2.data.slice(0, -5).forEach(cadaElemento => {
                 feed.item({
                     title: cadaElemento.titulo,
                     description: cadaElemento.cuerpo,
